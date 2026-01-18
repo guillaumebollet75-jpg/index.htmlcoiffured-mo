@@ -530,6 +530,90 @@
         }
 
         /* ============================================
+           SECTION AVIS CLIENTS
+           ============================================ */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--gray-light);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--gold);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            background-color: var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gold-dark);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover .client-avatar {
+            transform: scale(1.1);
+            background-color: var(--gold);
+            color: var(--white);
+        }
+
+        .rating {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .rating i {
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover .rating i {
+            transform: scale(1.2);
+            color: var(--gold-dark);
+        }
+
+        /* Animation séquentielle des étoiles */
+        .testimonial-card:hover .rating i:nth-child(1) { transition-delay: 0.1s; }
+        .testimonial-card:hover .rating i:nth-child(2) { transition-delay: 0.2s; }
+        .testimonial-card:hover .rating i:nth-child(3) { transition-delay: 0.3s; }
+        .testimonial-card:hover .rating i:nth-child(4) { transition-delay: 0.4s; }
+        .testimonial-card:hover .rating i:nth-child(5) { transition-delay: 0.5s; }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--black-light);
+        }
+
+        /* ============================================
            SECTION RÉSERVATION INTELLIGENTE
            ============================================ */
         .booking {
@@ -922,6 +1006,73 @@
         }
 
         /* ============================================
+           SECTION CONTACT & RÉSEAUX SOCIAUX
+           ============================================ */
+        .contact {
+            background-color: var(--gray-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .social-media-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-link div:first-child {
+            width: 60px;
+            height: 60px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .social-link:hover div:first-child {
+            background-color: var(--gold-dark);
+            transform: rotate(5deg);
+        }
+
+        .social-link img {
+            width: 30px;
+            height: 30px;
+            filter: brightness(0);
+            transition: var(--transition);
+        }
+
+        .social-link:hover img {
+            filter: brightness(0) invert(1);
+        }
+
+        .social-link span {
+            color: var(--black);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
            BOUTON RDV FLOATING
            ============================================ */
         .rdv-floating {
@@ -930,6 +1081,27 @@
             right: 30px;
             z-index: 999;
             animation: bounce 2s infinite;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         /* ============================================
@@ -1041,6 +1213,18 @@
             .services-select {
                 grid-template-columns: 1fr;
             }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-media-links {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1070,6 +1254,11 @@
             
             .reservation-form-container {
                 padding: 1.5rem;
+            }
+            
+            .social-media-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -1102,6 +1291,7 @@
                     <li><a href="#accueil" class="nav-link active">Accueil</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
                     <li><a href="#galerie" class="nav-link">Galerie</a></li>
+                    <li><a href="#avis" class="nav-link">Avis</a></li>
                     <li><a href="#reservation" class="nav-link">Réservation</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -1210,6 +1400,133 @@
                         <p>Brillance retrouvée</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION AVIS CLIENTS -->
+    <section class="testimonials" id="avis">
+        <div class="container">
+            <h2>Ce que disent nos clients</h2>
+            <p class="text-center">Découvrez les témoignages de nos clients satisfaits</p>
+            
+            <div class="testimonials-grid">
+                
+                <!-- Avis 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Marie L.</h4>
+                            <span>Paris</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Une qualité exceptionnelle et un service client réactif ! Ma coupe est parfaite, et le coiffeur a suivi mes désirs à la lettre. Je recommande les yeux fermés."
+                    </p>
+                </div>
+                
+                <!-- Avis 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Thomas et Sophie</h4>
+                            <span>Lyon</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Enfin un salon qui allie expertise et accueil chaleureux. Ma coloration est juste magnifique et mon mari adore sa nouvelle coupe. Notre salon de confiance !"
+                    </p>
+                </div>
+                
+                <!-- Avis 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Julie R.</h4>
+                            <span>Bordeaux</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Petit souci de rendez-vous, l'équipe a réglé le problème en moins de 24h avec une grande gentillesse. Une confiance totale restaurée. Merci !"
+                    </p>
+                </div>
+                
+                <!-- Avis 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Antoine D.</h4>
+                            <span>Lille</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Coupe parfaite, conforme à ce que je voulais. Le coiffeur a pris le temps de comprendre mes attentes. La réservation en ligne est très pratique. Très satisfait !"
+                    </p>
+                </div>
+                
+                <!-- Avis 5 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Chloé M.</h4>
+                            <span>Toulouse</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Des conseils personnalisés qui ont une véritable valeur. Mon coiffeur a vraiment compris ma nature de cheveux. Cela change des salons traditionnels. Ma référence !"
+                    </p>
+                </div>
+                
             </div>
         </div>
     </section>
@@ -1368,51 +1685,88 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" style="background-color: var(--gray-light);">
+    <!-- SECTION CONTACT & RÉSEAUX SOCIAUX -->
+    <section class="contact" id="contact">
         <div class="container">
-            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-                <h2>Contactez-nous</h2>
-                <p>Une question ? N'hésitez pas à nous contacter</p>
+            <h2>Contact & Réseaux Sociaux</h2>
+            <p class="text-center">Restez connectés avec nous pour nos dernières nouveautés et promotions</p>
+            
+            <div class="contact-grid">
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                    <div>
-                        <i class="fas fa-phone-alt" style="font-size: 2rem; color: var(--gold); margin-bottom: 1rem;"></i>
-                        <h4>Téléphone</h4>
-                        <a href="tel:0123456789" style="color: var(--black); text-decoration: none; font-weight: 600;">
-                            01 23 45 67 89
+                <div>
+                    <h3>Contactez-nous</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 50px; height: 50px; background-color: var(--gold); color: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0;">Téléphone</h4>
+                                <a href="tel:0123456789" style="color: var(--black); text-decoration: none; font-weight: 600;">
+                                    01 23 45 67 89
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; background-color: var(--gold); color: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0;">Email</h4>
+                                <a href="mailto:contact@salonelegance.fr" style="color: var(--black); text-decoration: none; font-weight: 600;">
+                                    contact@salonelegance.fr
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Suivez-nous</h3>
+                    <p>Découvrez nos dernières créations, promotions exclusives et coulisses du salon.</p>
+                    
+                    <div class="social-media-links">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/votrepagereelle" 
+                           target="_blank" 
+                           class="social-link" 
+                           title="Visitez notre Facebook">
+                            <div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
+                                     alt="Logo Facebook">
+                            </div>
+                            <span>Facebook</span>
+                        </a>
+                        
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/votrecomptereel" 
+                           target="_blank" 
+                           class="social-link"
+                           title="Suivez-nous sur Instagram">
+                            <div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
+                                     alt="Logo Instagram">
+                            </div>
+                            <span>Instagram</span>
                         </a>
                     </div>
                     
-                    <div>
-                        <i class="fas fa-envelope" style="font-size: 2rem; color: var(--gold); margin-bottom: 1rem;"></i>
-                        <h4>Email</h4>
-                        <a href="mailto:contact@salonelegance.fr" style="color: var(--black); text-decoration: none; font-weight: 600;">
-                            contact@salonelegance.fr
-                        </a>
-                    </div>
+                    <p style="margin-top: 2rem; color: var(--gray); font-size: 0.9rem; font-style: italic;">
+                        👉 Cliquez sur les logos pour visiter nos pages officielles
+                    </p>
                 </div>
                 
-                <div style="margin-top: 3rem;">
-                    <h4>Suivez-nous</h4>
-                    <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
-                        <a href="#" style="width: 50px; height: 50px; background-color: var(--gold); color: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: var(--transition);">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" style="width: 50px; height: 50px; background-color: var(--gold); color: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: var(--transition);">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer style="background-color: var(--black); color: var(--white); padding: 3rem 0 2rem; text-align: center;">
+    <footer>
         <div class="container">
             <div style="margin-bottom: 2rem;">
-                <a href="#accueil" style="display: inline-flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">
+                <a href="#accueil" class="footer-logo">
                     <div style="width: 40px; height: 40px; background-color: var(--gold); color: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-scissors"></i>
                     </div>
